@@ -1,0 +1,65 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class cse376 
+{
+
+	public static void main(String[] args) 
+	{
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://demo.guru99.com/test/newtours/reservation.php");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
+		driver.manage().window().maximize();
+		driver.findElementByXPath("/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[2]/td[2]/b/font/input[2]").click();
+		try {
+			Thread.sleep(1500);
+		} catch (InterruptedException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		Select drpdwn = new Select(driver.findElementByXPath("/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[3]/td[2]/b/select"));
+		drpdwn.selectByVisibleText("2");
+		try {
+			Thread.sleep(1500);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		Select drpdwn1 = new Select(driver.findElementByName("fromPort"));
+		drpdwn1.selectByVisibleText("Paris");
+		try {
+			Thread.sleep(2800);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Select drpdwn2 = new Select(driver.findElementByName("toPort"));
+		drpdwn2.selectByVisibleText("Sydney");
+		try {
+			Thread.sleep(2500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.findElementByName("servClass").click();
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.findElementByName("findFlights").click();
+		//String URL = driver.getCurrentUrl();
+		//if(URL.equals("http://demo.guru99.com/test/newtours/reservation2.php")) {System.out.println("Search success");}
+		//else {System.out.println("Search Failed");}
+		//Thread.sleep(2000);
+		driver.quit();
+	}
+
+}
